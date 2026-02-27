@@ -1,0 +1,56 @@
+Task 1: Health Check API
+Goal: Practice routes & HTTP 200
+Create a FastAPI app
+
+
+Route: /health
+
+
+Method: GET
+
+
+Response:
+
+
+{
+ "status": "OK",
+ "server": "running"
+}
+
+
+
+Goal: Understand path parameters
+Route: /hello/{username}
+
+
+Method: GET
+
+
+Response:
+
+
+{
+ "message": "Hello Zain"
+}
+✔ If user accesses /hello/ali, response should greet Ali
+
+
+Task 3: Math API (Path Parameters)
+Goal: Numeric validation
+Route: /square/{number}
+
+
+Method: GET
+
+
+number must be an int
+
+
+Response:
+
+
+{
+ "number": 5,
+ "square": 25
+}
+❌ Try passing a string and observe 422 error
