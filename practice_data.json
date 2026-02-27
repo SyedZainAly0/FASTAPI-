@@ -1,0 +1,86 @@
+
+{  "users": { 
+  "1": {
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "age": 28,
+      "is_active": true,
+      "roles": ["admin", "editor"],
+      "address": {
+        "street": "123 Maple St",
+        "city": "New York",
+        "country": "USA"
+      }
+    },
+    "2": {
+      "name": "Bob Smith",
+      "email": "bob.smith@example.com",
+      "age": 35,
+      "is_active": false,
+      "roles": ["viewer"],
+      "address": {
+        "street": "456 Oak Ave",
+        "city": "Los Angeles",
+        "country": "USA"
+      }
+    },
+    "3": {
+      "name": "Charlie Davis",
+      "email": "charlie.davis@example.com",
+      "age": 42,
+      "is_active": true,
+      "roles": ["editor"],
+      "address": {
+        "street": "789 Pine Rd",
+        "city": "Chicago",
+        "country": "USA"
+      }
+    }
+  },
+    
+  "products": {
+    "101": {
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "price": 25.99,
+      "stock": 100,
+      "tags": ["computer", "accessory"]
+    },
+    "102": {
+      "name": "Bluetooth Headphones",
+      "category": "Electronics",
+      "price": 59.99,
+      "stock": 50,
+      "tags": ["audio", "wireless"]
+    },
+    "103": {
+      "name": "Coffee Mug",
+      "category": "Kitchen",
+      "price": 9.99,
+      "stock": 200,
+      "tags": ["drinkware", "ceramic"]
+    }
+  },
+
+  "orders": {
+    "1001": {
+      "user_id": 1,
+      "products": [
+        {"product_id": 101, "quantity": 2},
+        {"product_id": 103, "quantity": 1}
+      ],
+      "total": 61.97,
+      "status": "shipped",
+      "order_date": "2026-02-22"
+    },
+    "1002": {
+      "user_id": 3,
+      "products": [
+        {"product_id": 102, "quantity": 1}
+      ],
+      "total": 59.99,
+      "status": "pending",
+      "order_date": "2026-02-23"
+    }
+  }
+}
