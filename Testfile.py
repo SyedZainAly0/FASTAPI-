@@ -142,3 +142,44 @@ async def create_order( item: Item, user: User, address: Address):
         "user": user,
         "address": address
     }
+
+
+# Model nesting:
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    price: float
+
+class User(BaseModel):
+    username: str
+    email: str
+
+class Address(BaseModel):
+    street: str
+    city: str
+    country: str
+
+class Payment(BaseModel):
+    card_number: str
+    amount: float
+
+class Coupon(BaseModel):
+    code: str
+    discount: float
+
+# One main model that contains all others
+class Order(BaseModel):
+    item: Item          # nested Pydantic model
+    user: User          # nested Pydantic model
+    address: Address    # nested Pydantic model
+    payment: Payment    # nested Pydantic model
+    coupon: Coupon      # nested Pydantic model
+
+@app.post("/order")
+async def create_order(order: Order):   # just one model!
+    return order
