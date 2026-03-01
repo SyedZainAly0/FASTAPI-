@@ -174,11 +174,11 @@ class Coupon(BaseModel):
 
 # One main model that contains all others
 class Order(BaseModel):
-    item: Item          # nested Pydantic model
-    user: User          # nested Pydantic model
-    address: Address    # nested Pydantic model
-    payment: Payment    # nested Pydantic model
-    coupon: Coupon      # nested Pydantic model
+    item: Item       
+    user: User          
+    address: Address    
+    payment: Payment   
+    coupon: Coupon      
 
 @app.post("/order")
 async def create_order(order: Order):   # just one model!
