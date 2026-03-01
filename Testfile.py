@@ -117,11 +117,6 @@ This files run seperately not linked with HealthAPi file
 
 # if we multiple base models for single url:
 
-from fastapi import FastAPI
-from pydantic import BaseModel
-
-app = FastAPI()
-
 class Item(BaseModel):
     name: str
     price: float
@@ -136,7 +131,7 @@ class Address(BaseModel):
     country: str
 
 @app.post("/order")
-async def create_order( item: Item, user: User, address: Address):
+async def create_order( item: Item, user: User, address: Address , Body):
     return {
         "item": item,
         "user": user,
@@ -183,3 +178,23 @@ class Order(BaseModel):
 @app.post("/order")
 async def create_order(order: Order):   # just one model!
     return order
+
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+'''
+Request Example Data
+'''
+
+class Item(BaseModel):
+    name: str = Field(examples=["Foo0000000000000"])
+    description: str | None = Field(default=None, examples=["A very nice Itemmmmmmmmmmmmm"])
+    price: float = Field(examples=[35.44444])
+    tax: float | None = Field(default=None, examples=[3.222222222222])
+
+
+@app.put("/items/{item_id}")
+async def update_item(item_id: int, item: Item):
+    results = {"item_id": item_id, "item": item}
+    return results
