@@ -131,7 +131,7 @@ class Address(BaseModel):
     country: str
 
 @app.post("/order")
-async def create_order( item: Item, user: User, address: Address , Body):
+async def create_order( item: Item, user: User, address: Address):
     return {
         "item": item,
         "user": user,
@@ -180,12 +180,13 @@ async def create_order(order: Order):   # just one model!
     return order
 
 
-# ------------------------------------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------
 
 
 '''
 Request Example Data
 '''
+
 
 class Item(BaseModel):
     name: str = Field(examples=["Foo0000000000000"])
