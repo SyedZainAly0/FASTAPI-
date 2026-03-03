@@ -118,7 +118,7 @@ This files run seperately not linked with HealthAPi file
 # if we multiple base models for single url:
 
 class Item(BaseModel):
-    name: str
+    name: str 
     price: float
 
 class User(BaseModel):
@@ -131,7 +131,7 @@ class Address(BaseModel):
     country: str
 
 @app.post("/order")
-async def create_order( item: Item, user: User, address: Address):
+async def create_order( item: Annotated[Item,Body()], user: User, address: Address):
     return {
         "item": item,
         "user": user,

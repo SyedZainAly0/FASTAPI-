@@ -6,7 +6,7 @@ from QueryParamter import route as system_testing
 from PathQuery import app as get_product
 from FilterfunctioninQuery import app as get_product
 from BodyParams import app as create_order
-
+from HTTPExceptions import app as read_item
 
 app = FastAPI()
 
@@ -18,7 +18,7 @@ app.include_router(system_testing)
 app.include_router(get_product)
 app.include_router(get_product)
 app.include_router(create_order)
-
+app.include_router(read_item)
 
 # Health check endpoint
 @app.get('/health')
