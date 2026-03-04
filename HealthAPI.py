@@ -7,6 +7,8 @@ from PathQuery import app as get_product
 from FilterfunctioninQuery import app as get_product
 from BodyParams import app as create_order
 from HTTPExceptions import app as read_item
+from JSONable_encoder import app as create_item
+
 
 app = FastAPI()
 
@@ -19,6 +21,7 @@ app.include_router(get_product)
 app.include_router(get_product)
 app.include_router(create_order)
 app.include_router(read_item)
+app.include_router(create_item)
 
 # Health check endpoint
 @app.get('/health')
