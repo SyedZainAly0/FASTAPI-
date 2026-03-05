@@ -59,39 +59,39 @@ async def main():
 asyncio.run(main())
 
 
-# 4th Exmample
+# # 4th Exmample
 
-'''  
-async def get_weather(city: str):
-    print(f"☁️ Fetching weather for {city}...")
-    async with httpx.AsyncClient() as client:
-        # This 'await' lets the Manager do other things while the API responds
-        response = await client.get(f"https://wttr.in/{city}?format=j1")
-        print(f"✅ Weather for {city} received!")
-        return response.json()['current_condition'][0]['temp_C']
+# '''  
+# async def get_weather(city: str):
+#     print(f"☁️ Fetching weather for {city}...")
+#     async with httpx.AsyncClient() as client:
+#         # This 'await' lets the Manager do other things while the API responds
+#         response = await client.get(f"https://wttr.in/{city}?format=j1")
+#         print(f"✅ Weather for {city} received!")
+#         return response.json()['current_condition'][0]['temp_C']
 
-async def get_exchange_rate():
-    print("💰 Fetching exchange rate...")
-    await asyncio.sleep(1) # Simulating a quick API call
-    print("✅ Exchange rate received!")
-    return "278.50 PKR"
+# async def get_exchange_rate():
+#     print("💰 Fetching exchange rate...")
+#     await asyncio.sleep(1) # Simulating a quick API call
+#     print("✅ Exchange rate received!")
+#     return "278.50 PKR"
 
-async def main():
-    start_time = time.perf_counter()
+# async def main():
+#     start_time = time.perf_counter()
 
-    # The Event Loop manages both API calls at once!
-    weather_task = get_weather("London")
-    rate_task = get_exchange_rate()
+#     # The Event Loop manages both API calls at once!
+#     weather_task = get_weather("London")
+#     rate_task = get_exchange_rate()
 
-    # We fire them off together
-    temperature, rate = await asyncio.gather(weather_task, rate_task)
+#     # We fire them off together
+#     temperature, rate = await asyncio.gather(weather_task, rate_task)
 
-    print(f"\n--- Dashboard ---")
-    print(f"London Temp: {temperature}°C")
-    print(f"USD to PKR: {rate}")
+#     print(f"\n--- Dashboard ---")
+#     print(f"London Temp: {temperature}°C")
+#     print(f"USD to PKR: {rate}")
     
-    end_time = time.perf_counter()
-    print(f"Time taken: {end_time - start_time:.2f} seconds")
+#     end_time = time.perf_counter()
+#     print(f"Time taken: {end_time - start_time:.2f} seconds")
 
-asyncio.run(main())
-'''
+# asyncio.run(main())
+# '''
